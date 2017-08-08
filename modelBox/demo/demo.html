@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="pomelo_modelBox.css">
+</head>
+<body>
+<input type="button" name="" value="1" class="btn">
+<input type="button" name="" value="2" class="btn">
+<input type="button" name="" value="3" class="btn">
+<div class="model-con model-con1">
+	<h2>model-con1 </h2>
+</div>
+<div class="model-con model-con3">
+	<h2>model-con2</h2>
+</div>
+
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="pomelo_modelBox.js"></script>
+	<script type="text/javascript">
+	$(".btn").eq(0).click(function(){
+		dialog1=new Dialog({num:1,cover:true,scroll:false,pos:"center","style":"slide",w:500,h:400,content:true})
+	})
+	$(".btn").eq(1).click(function(){
+		var dialog2=new Dialog({num:2,cover:false,cover:true,pos:"rightBottom",scroll:false,"content":false})
+	})
+	$(".btn").eq(2).click(function(){
+		var dialog3=new Dialog({num:3,cover:true,pos:"center",scroll:false,style:"fade",content:true})
+	})	
+	</script>
+</body>
+</html>
