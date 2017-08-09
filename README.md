@@ -1,6 +1,7 @@
 # jquery-plug-in
 plug-in basing on Jquery
 <h2>模态框（modelBox）</h2>
+<h4>使用方法</h4>
 <div>
 	<p>1.引入css文件（建议复制粘贴至项目css文件中）</p>
 	<p>2.引入js文件（建议使用发布的压缩版）</p>
