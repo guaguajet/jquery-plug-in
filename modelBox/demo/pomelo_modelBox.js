@@ -32,7 +32,7 @@
 						"top":(document.documentElement.clientHeight-parseInt(this.settings.h))/2+"px"
 				})
 			}
-			if(this.settings.content==true){
+			if(this.settings.content!=false){
 				this.fillContent();
 			}
 
@@ -100,9 +100,7 @@
 
 		
 		Dialog.prototype.fillContent=function(){
-			this.oModelCon=$(".model-con"+this.settings.num+"").eq(0);
-			this.oModelCon.appendTo(this.oDialog)
-			this.oDialog.find(".model-con").css({"display":"block"})
+			$(this.settings.content).appendTo(this.oDialog)
 		}
 		Dialog.prototype.close=function(){
             	this.oDialog.animate({"opacity":"0"})
