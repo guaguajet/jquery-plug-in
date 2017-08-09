@@ -20,7 +20,7 @@ plug-in basing on Jquery
 <p>scroll:true</p>
 <p>模态显示后滚动条能否滑动：ture(能),false(不能)，默认为true</p>
 <p>content:true</p>
-模态框内容(以HTML标签为内容的字符串)："<h1 class='testTitle'>dialog3 content</h1>"
+模态框内容(以HTML标签为内容的字符串)："&lt;h1 class='testTitle'&gt;dialog3 content&lt;/h1&gt;"
 <p>closeBtn:true</p>
 <p>是否添加模态框的关闭按钮(需引入按钮图片)：默认为true</p>
 <p>style:"fade"</p>
