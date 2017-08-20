@@ -1,10 +1,9 @@
-# jquery-plug-in
 <h1>基于JQUERY的插件库，喜欢请在右上角给星，好人一生平安！组件的详细使用方法请进入相应的文件夹查看！</h2>
 <h2>组件库（componentGallery）</h2>
 <h4>使用方法</h4>
 <div>
 	<p>1.引入css文件（建议复制粘贴至项目css文件中）</p>
-	<p>2.引入pomelo.js文件</p>
+	<p>2.引入pomelo.js文件（需要引入jquery）</p>
 	<p>3.创建相应的对象，并传入参数。</p>
 </div>
 <h4>导航滚动(slideNav)参数说明</h4>
@@ -25,6 +24,7 @@
 		})<br>
 </p>
 <h4>多功能回到顶部(backTop)参数说明</h4>
+<p>速度可调控，带隐藏效果，返回过程中可回滚。</p>
 <p>
 			var test=new backTop({    <br>
 			btn:"backTop",    回到顶部按钮的ID（此处无#）<br>
