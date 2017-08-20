@@ -27,9 +27,11 @@
 				$(ele).attr("index",i)
 
 				$(ele).click(function(){
-					$("html body").animate({scrollTop:_this.targetObj[$(this).attr("index")]+_this.set.pos+"px"})	
+	
+					$("html,body").animate({scrollTop:_this.targetObj[$(this).attr("index")]+_this.set.pos+"px"},"swing")	
 				})
 			})
+			console.log(this.targetObj)
 		}
 		this.init();
 	}
@@ -41,7 +43,7 @@
 			style:"fade",
 			tabBtn:".tab-nav",
 			tabBox:".tab-box",
-			choseCall:function(nowNum){}
+			choseCall:function(index){}
 
 		}
 		var index;
