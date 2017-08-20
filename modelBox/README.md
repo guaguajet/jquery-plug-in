@@ -1,4 +1,3 @@
-# jquery-plug-in
 <h1>基于JQUERY的插件库，喜欢请在右上角给星，好人一生平安！</h2>
 <h2>模态框（modelBox）</h2>
 <h4>使用方法</h4>
