@@ -122,46 +122,104 @@ function backTop(obj){
 	}
 
 
-	function scrollTrigger(obj){
-		this.set={
-			pos:"#scrollBox",
-			delayDistance:0,
-			single:true,
-			passCallback:function(){},
-			backCallback:function(){}
-		}
-		this.passFlag=false;
-		this.backFlag=false;
-		$.extend(this.set,obj)
-		var _this=this;
-		this.init=function(){
-				$(window).scroll(function(){
-					if($(window).scrollTop()>=$(_this.set.pos).offset().top-$(window).height()+_this.set.delayDistance){
-						if(_this.set.single==true&&_this.passFlag==false){
-								_this.set.passCallback();
-								_this.passFlag=true;
-						}else if(_this.set.single==true&&_this.passFlag==true){
-								
-						}else{
-							_this.set.passCallback();
-						}
+    function scrollTrigger(obj){
+        this.set={
+            type:"show",
+            pos:"#scrollBox",
+            delayDistance:0,
+            single:true,
+            passCallback:function(){},
+            backCallback:function(){}
+        }
+        this.passFlag=false;
+        this.backFlag=false;
+        $.extend(this.set,obj)
+        var _this=this;
+        this.init=function(){
+                $(window).scroll(function(){
+                    if(_this.set.type=="scroll"){
+                        if($(window).scrollTop()>=$(_this.set.pos).offset().top+_this.set.delayDistance){
+                            if(_this.set.single==true&&_this.passFlag==false){
+                                    _this.set.passCallback();
+                                    _this.passFlag=true;
+                            }else if(_this.set.single==true&&_this.passFlag==true){
+                                    
+                            }else{
+                                _this.set.passCallback();
+                            }
+                        }
+                        if($(window).scrollTop()<$(_this.set.pos).offset().top+_this.set.delayDistance){
+                            if(_this.set.single==true&&_this.backFlag==false){
+                                    _this.set.backCallback();
+                                    _this.backFlag=true;                            
+                            }else if(_this.set.single==true&&_this.backFlag==true){
+                                
+                            }else{
+                                _this.set.backCallback();
+                            }
+                        }
+                    }
+                    if(_this.set.type=="show"){
+                        if($(window).scrollTop()>=$(_this.set.pos).offset().top-$(window).height()+_this.set.delayDistance){
+                            if(_this.set.single==true&&_this.passFlag==false){
+                                    _this.set.passCallback();
+                                    _this.passFlag=true;
+                            }else if(_this.set.single==true&&_this.passFlag==true){
+                                    
+                            }else{
+                                _this.set.passCallback();
+                            }
+                        }
+                        if($(window).scrollTop()+$(window).height()<$(_this.set.pos).offset().top+_this.set.delayDistance){
+                            if(_this.set.single==true&&_this.backFlag==false){
+                                    _this.set.backCallback();
+                                    _this.backFlag=true;                            
+                            }else if(_this.set.single==true&&_this.backFlag==true){
+                                
+                            }else{
+                                _this.set.backCallback();
+                            }
+                        }
+                    }
+                })                    
+        }
+        this.init();
+    }
 
-					}
-					if($(window).scrollTop()<$(_this.set.pos).offset().top){
-						if(_this.set.single==true&&_this.backFlag==false){
-								_this.set.backCallback();
-								_this.backFlag=true;							
-						}else if(_this.set.single==true&&_this.backFlag==true){
-							
-						}else{
-							_this.set.backCallback();
-						}
+	function scrollBanner(obj){
+    this.set={
+        vis:4,
+        scroll:4,
+        wrap:".scroll-main ul",
+        item:".scroll-main ul li",
+        btnPre:".pre-scroll",
+        btnNext:".next-scroll"
+    }
+    var _this=this;
+    $.extend(this.set,obj)
+    this.set.scroll=this.set.scroll>this.set.vis?this.set.scroll%this.set.vis:this.set.scroll;
+    var itemNum=$(_this.set.item).length;
+    var itemW=$(_this.set.item).outerWidth();
+    $(_this.set.wrap).css({"width":itemNum*itemW+"px"})
 
-					}
-				})					
-		}
-		this.init();
+    $(_this.set.btnPre).eq(0).click(function(){
+        var nowL=parseInt($(_this.set.wrap).eq(0).css("left"))
+        if(nowL>=0){
+            $(_this.set.wrap+":not(:animated)").eq(0).animate({"left":-(itemNum-_this.set.vis)*itemW+"px"})
+        }else{
+            $(_this.set.wrap+":not(:animated)").eq(0).animate({"left":nowL+_this.set.scroll*itemW+"px"})
+        }
+        
+    })
+    $(_this.set.btnNext).eq(0).click(function(){
+        var nowL=parseInt($(_this.set.wrap).eq(0).css("left"))
+        if(nowL<=-(itemNum-_this.set.vis)*itemW){
+            $(_this.set.wrap+":not(:animated)").eq(0).animate({"left":"0px"})
+        }else{
+            $(_this.set.wrap+":not(:animated)").eq(0).animate({"left":nowL-_this.set.scroll*itemW+"px"})
+        }
+    })
 	}
 
-	$.extend(window,{slideNav:slideNav,tab:tab,backTop:backTop,scrollTrigger:scrollTrigger})
+	$.extend(window,{slideNav:slideNav,tab:tab,backTop:backTop,scrollTrigger:scrollTrigger,scrollBanner:scrollBanner})
 })()
